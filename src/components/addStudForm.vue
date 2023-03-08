@@ -1,6 +1,7 @@
-<script setup >
+<script setup>
 
     import Modal from './Modal.vue';
+    // import crossIcon from './components/icons/crossIcon.vue'; 
 
     const props = defineProps({
         showModal: {
@@ -22,7 +23,7 @@
 
 <Teleport to="body">
   <!-- use the modal component, pass in the prop -->
-  <Modal :show="showModal" >
+  <Modal @close="$emit('close')" :show="showModal" >
     <template #header>
       <h3>Добавить пользователя</h3>
     </template>

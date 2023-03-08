@@ -1,8 +1,13 @@
 <script>
+import CrossIcon from './icons/crossIcon.vue';
+
+
 export default {
-  props: {
-    show: Boolean
-  }
+    props: {
+        show: Boolean
+    },
+    
+    components: { CrossIcon }
 }
 </script>
 
@@ -10,7 +15,11 @@ export default {
   <Transition name="modal">
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
-
+        <div class="exit-container">
+          <div v-on:click="$emit('close')" class="exit-button">
+            <CrossIcon ></CrossIcon>
+          </div>
+        </div>
         <div class="modal-header">
           <slot name="header">default header</slot>
         </div>
@@ -35,6 +44,19 @@ export default {
 </template>
 
 <style>
+.exit-container {
+  display: flex;
+  width: 100%;
+}
+
+.exit-button {
+  position: absolute;
+  left: 100.9%;
+  bottom: 0px;
+  margin: -10px;
+  
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -92,4 +114,11 @@ export default {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+.exit-button:hover {
+  transform: scale(0.96);
+  color: rgb(2, 159, 243);
+}
+
+
 </style>

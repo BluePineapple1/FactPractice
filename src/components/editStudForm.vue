@@ -22,7 +22,7 @@
 
 <Teleport to="body">
   <!-- use the modal component, pass in the prop -->
-  <Modal :show="showModal" >
+  <Modal @close="$emit('close')" :show="showModal" >
     <template #header>
       <h3>Режим редактирования</h3>
     </template>

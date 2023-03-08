@@ -36,8 +36,8 @@ import StudTable from "./components/StudTable.vue";
   cursor: pointer;
 } */
 h1 {
-  color: hsla(160, 100%, 37%, 1);
-  font-weight: 800;
+  color: rgb(147, 147, 147);
+  font-weight: 500;
   padding: 10px;
   margin-left: -10px;
 }

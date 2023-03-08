@@ -1,6 +1,5 @@
 <style>
     .filter-holder {
-       border: 1px solid #e0e0e0;
        border-bottom: none;
        width: 1151px;
     }
@@ -17,7 +16,7 @@
             <div class="d-flex align-items-end justify-content-between">          
                 <h4 class="pt-3">Фильтр</h4>    
             </div>
-            <hr class="w-100 mt-1 mb-3"/>
+         
         </div>
         <div class="row m-0 table">
             <div class="container-xxl ps-4 pe-4 pt-2 pb-1 table-container">
@@ -34,8 +33,9 @@
                         <input v-model="filter.middleName.value" type="text" class="form-control" placeholder="Отчество">
                     </div>
 
-                    <div class="col">
+                    <div v-tooltip.tooltip="'Выберите группу'" class="col">
                         <select v-model="filter.group.value" id="group" class="form-control" placeholder="Группа">
+                            <option disabled selected value> -- Выберите группу -- </option>
                             <option v-for="value, key in groups" :value="key">{{ value }}</option>
                         </select>
                     </div>
@@ -114,7 +114,7 @@
 
 <style>
     .pt-3 {
-        color: hsla(160, 100%, 37%, 1);
+        color: rgb(168, 168, 178);
     }
 
     .applyButton {
