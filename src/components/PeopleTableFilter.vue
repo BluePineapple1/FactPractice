@@ -33,9 +33,9 @@
                         <input v-model="filter.middleName.value" type="text" class="form-control" placeholder="Отчество">
                     </div>
 
-                    <div v-tooltip.tooltip="'Выберите группу'" class="col">
+                    <div class="col">
                         <select v-model="filter.group.value" id="group" class="form-control" placeholder="Группа">
-                            <option disabled selected value> -- Выберите группу -- </option>
+                            <option hidden disabled selected :value="null"> Выберите группу</option>
                             <option v-for="value, key in groups" :value="key">{{ value }}</option>
                         </select>
                     </div>
@@ -120,10 +120,14 @@
     .applyButton {
         width: 90px;
         color: var(--bs-light);
+        
     }
 
     .cancelButton {
         width: 90px;
         
     }
+
+
+
 </style>

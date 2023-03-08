@@ -43,8 +43,9 @@
                             <input id="middle_name" v-model="item.middleName" type="text" class="form-control" placeholder="Отчество">
                         </div>
 
-                        <div class="col">
+                        <div v-tooltip.tooltip="'Выберите группу'" class="col">
                             <select id="group" v-model="item.group" type="text" class="form-control" placeholder="Группа">
+                                <option disabled selected value> -- Выберите группу -- </option>
                                 <option v-for="item, value in groups" :value="value">{{ item }}</option>
                             </select>
                         </div>
@@ -212,6 +213,17 @@
         border-bottom: 1px ridge rgb(103, 103, 103);
         font-size: 12px;
         background-color: transparent;
+
+    }
+
+    select.form-control {
+        min-width: 100px;
+        border-radius: 0px;
+        border: 0;
+        border-bottom: 1px ridge rgb(103, 103, 103);
+        font-size: 12px;
+        background-color: transparent;
+        color: rgb(111, 107, 107);
 
     }
 

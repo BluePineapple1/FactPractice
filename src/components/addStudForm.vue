@@ -45,6 +45,7 @@
 
                     <div class="col">
                         <select id="group" v-model="newRecord.group" type="text" class="form-control" placeholder="Группа">
+                            <option hidden disabled selected :value="null"> Выберите группу</option>
                             <option v-for="value, key in groups" :value="key">{{ value }}</option>
                         </select>
                     </div>
@@ -63,12 +64,15 @@
     <template #footer>
         <div class="container-xxl p-0">
             <div class="row p-0 d-flex justify-content-between">
-                <div class="col-auto close_action">
+                <!-- <div class="col-auto close_action">
                     <button @click="$emit('close')">
                     Закрыть</button>
+                </div> -->
+                <div class="col-auto">
+                    <button @click="$emit('clear_inputs')">
+                Очистить</button>
                 </div>
-                <div class="row col-auto main_action">
-                    <div class="col pe-1">
+                    <div class="col-auto">
                         <button :disabled="
                         newRecord.group === null 
                         || newRecord.name.length < 1
@@ -81,13 +85,10 @@
                     Добавить</button>
                     </div>
                     
-                    <div class="col ps-1">
-                        <button @click="$emit('clear_inputs')">
-                    Очистить</button>
-                    </div>
+                   
                 </div>
             </div> 
-        </div>
+       
     </template>
 </Modal>
 </Teleport>
@@ -143,5 +144,7 @@
         min-width: fit-content;
         color: aqua;
     }
+
+   
 
 </style>
